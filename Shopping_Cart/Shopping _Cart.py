@@ -29,6 +29,5 @@ if(input("Do you want to remove anthing from the cart(y/n):"))=='y':
     print("Thank you for shopping with us")    
 else:
     print("Thank you for shopping with us")
-print("=========================================")
-
+print("================================")
 
