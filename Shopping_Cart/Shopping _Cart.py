@@ -16,7 +16,7 @@ print(f"your number of items:{len(cart)}")
 if(input(f'Do you want to add one more item(y/n)'))=='y':
     add_item=input("Enter the item you want to add:")
     cart.append(add_item)
-    print("item{add_item}addded successfully:")
+    print(f"item{add_item}addded successfully:")
     print(f"Your updated cart items are:{cart}")
 else:
     print(f"Your final cart items are:{cart}")
