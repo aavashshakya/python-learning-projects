@@ -26,8 +26,7 @@ if(input("Do you want to remove anthing from the cart(y/n):"))=='y':
     print(f"Your updated cart is:{cart}")
     print("=====Item removed sucessfully======")
     print(f"your final cart items are{cart}")
-    print("Thank you for shopping with us")
-
+    print("Thank you for shopping with us")    
 else:
     print("Thank you for shopping with us")
 print("=========================================")
