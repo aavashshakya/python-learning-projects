@@ -45,7 +45,7 @@ while True:
     ch=int(input("what do you want to perform:"))
 
     if(ch==1):
-        print("\n=====Welcome to the  Addition:======")
+        print("\n=====Welcome to the  Addition:=====")
         total=add(*add_list)
         print(f"Your addition of {add_list}is:{total}") 
         break
