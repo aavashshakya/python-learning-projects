@@ -1,120 +1,44 @@
-def multiply_1000(num):
-    num=float(num*1000)
-    return num
+#show user the items you have in your shop and let user decide how they want to filter that products
+products = [
+    {"name": "Laptop", "price": 65000, "category": "Electronics"},
+    {"name": "Mouse", "price": 800, "category": "Electronics"},
+    {"name": "Notebook", "price": 60, "category": "Stationery"},
+    {"name": "Desk", "price": 5000, "category": "Furniture"},
+]
+print("======Welcome to the Aavash store=====")
+print("\nThese are our prodeucts feel free to filter the product as you want")
+print("""\n1. Show all products
+2. Filter by max price
+3. Sort by price
+4. Search by name
+5. Exit""")
+choice=int(input("Enter the filter option you want:"))
+if(choice==1):
+    pass
 
-def divide_1000(num):
+elif(choice==2):
+    max_price_user=int(input("Enter the max price you are looking for:"))
+    result =filter(lambda x : x["price"] <= max_price_user, products)
+    print(f'your sorted list is:\n{list(result)}')
     
-    num=float(num/1000)
-    return num
-
-def m_cm(num):
-    num=float(num*1000)
-    return num
-
-def cm_m(num):
-    num=float(num/1000)
-    return num
-
-def c_f(num):
-    num = float((num * 9/5) + 32)
-    return num
-
-def f_c(num):
-    num = float((num - 32) * 5/9)
-    return num
-
-def c_k(num):
-    num=float(num+273.15)
-    return num
-
-def k_c(num):
-    num=float(num-273.15)
-    return num
-
-def kg_lb(num):
-    num=float(num*2.20462)
-    return num
-
-def lb_kg(num):
-    num=float(num/2.20462)
-    return num 
-
-print("=====Welcome to unit conveter======\n")
-print("Please select the unit you want to convert:")
-ch=int(input('\n1.Length\n2.Temperature\n3.Mass\nchoice:'))
-if(ch==1):
-    print("Please select the option below:")
-    option=int(input("""\n1.km ➡️   m  
-2.m  ➡️   km
-3.m  ➡️   cm
-4.cm ➡️   m
-choice:"""))
-    num=float(input("Enter the lenght you want to convert:"))
-    if(option==1):
-        result=multiply_1000(num)
-        print(f'{result:.2f} m')
-        
-    elif(option==2):
-        result=divide_1000(num)
-        print(f"{result:.2f} Km")
-        
-    elif(option==3):
-        result=m_cm(num)
-        print(f"{result:.2f} cm")
-        
+    
+elif(choice==3):
+    result=sorted(products,key=lambda x: x["price"])
+    print(f"your sorted list by price is:\n{result}")
+    
+    
+elif(choice==4):
+    name=input("\nEnter the name of the product:")
+    name=name.capitalize()
+    result=list(filter(lambda x:x['name']==name,products))
+    
+    if result:
+        print(f"your sorted product {name} is:\n{result}")
     else:
-        result=cm_m(num)
-        print(f"{result:.2f} m")
-
-elif(ch==2):
-    num=float(input("Enter the Temperature you want to convert:"))
-    print("Please select the option below:")
-    option=int(input("""\n1.c  ➡️   f    
-2.f  ➡️   c
-3.c  ➡️   k
-4.k  ➡️   c
-choice:"""))
-    if(option==1):
-        result=c_f(num)
-        print(f"{result:.2f} F")
+        print("Item not found")
         
-    elif(option==2):
-        result=f_c(num)
-        print(f"{result:.2f} C")
-        
-    elif(option==3):
-        result=c_k(num)
-        print(f"{result:.2f} K")
-        
-    else:
-        result=k_c(num)
-        print(f"{result:.2f} C")
-
-elif(ch==3):
-     num=float(input("Enter the Mass you want to convert:"))
-     print("Please select the option below:")
-     option=int(input("""\n1.kg ➡️   g   
-2.g  ➡️   kg
-3.kg ➡️   lb
-4.lb ➡️   kg
-choice:"""))
-     
-     if(option==1):
-         result=multiply_1000(num)
-         print(f"{result:.2f} kg")
-         
-     elif(option==2):
-         result=divide_1000(num)
-         print(f"{result:.2f} km")
-         
-     elif(option==3):
-         result= kg_lb(num)
-         print(f"{result:.2f} lb")
-         
-     else:
-         result=lb_kg(num)
-         print(f"{result:.2f}")
-
-
+elif(choice==5):
+    print("Thank you for your time")
+    
 else:
-    print("Enter a vaild number from the option above!")
+    print("Enter the vaild option")
